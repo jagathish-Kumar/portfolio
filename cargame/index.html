@@ -6,10 +6,10 @@
         .hide{
             display: none;
         }
-        .startScreen{
+        /* .startScreen{
             height: 300px;
             background-color: aqua;
-        }
+        } */
 
     </style>
 </head>
@@ -23,11 +23,37 @@
         const startScreen= document.querySelector(".startScreen");
         const gameArea = document.querySelector(".gameArea"); 
 
+       //Keys
+
+        let keys={
+            ArrowUp: false,
+            ArrowDown : false,
+            ArrowRight : false,
+            ArrowLeft : false
+
+        }
+
         //identify a click 
+
         startScreen.addEventListener("click",start);
+        document.addEventListener("keydown",pressOn);
+        document.addEventListener("keyup",pressOff);
+
+        //functions
+
         function start()
         {
         console.log("game Started");
+        }
+        function pressOn(e)
+        {
+        keys[e.key]= true
+        console.log(keys);
+        }
+        function pressOff(e)
+        {
+        keys[e.key]= false
+        console.log(keys);
         }
     </script>
 </body>
